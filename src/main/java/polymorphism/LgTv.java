@@ -1,6 +1,14 @@
 package polymorphism;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
+
+@Component("tv")
 public class LgTv implements TV {
+	
+	@Autowired
+	private Speaker speaker;
 
 	@Override
 	public void powerOn() {
@@ -17,13 +25,13 @@ public class LgTv implements TV {
 	@Override
 	public void volumeUp() {
 		// TODO Auto-generated method stub
-		System.out.println("LgTV --소리 올린다.");
+		speaker.volumeUp();
 	}
 
 	@Override
 	public void volumeDown() {
 		// TODO Auto-generated method stub
-		System.out.println("LgTV --소리 내린다.");
+		speaker.volumeDown();
 	}
 
 }
