@@ -5,15 +5,12 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-
-
 public class JDBCUtil {
 	public static Connection getConnection() {
 		try {
 
-			Class.forName("com.mysql.jdbc.Driver");
-			return DriverManager.getConnection("jdbc:mysql://localhost:3306/Spring_Quick_Start", "dimenter",
-					"Dimenter711!");
+			Class.forName("org.h2.Driver");
+			return DriverManager.getConnection("jdbc:h2:tcp://localhost/~/test","sa","");
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -46,41 +43,41 @@ public class JDBCUtil {
 			}
 		}
 	}
-	
-	public static void close(ResultSet rs , PreparedStatement stmt, Connection conn){
-		if(rs!=null){
-			try{
-				if(!rs.isClosed()){
+
+	public static void close(ResultSet rs, PreparedStatement stmt, Connection conn) {
+		if (rs != null) {
+			try {
+				if (!rs.isClosed()) {
 					rs.close();
 				}
-			}catch(Exception e){
+			} catch (Exception e) {
 				e.printStackTrace();
-			}finally{
-				rs=null;
+			} finally {
+				rs = null;
 			}
 		}
-		
-		if(stmt != null){
-			try{
-				if(!stmt.isClosed()){
+
+		if (stmt != null) {
+			try {
+				if (!stmt.isClosed()) {
 					stmt.close();
 				}
-			}catch(Exception e){
+			} catch (Exception e) {
 				e.printStackTrace();
-			}finally{
+			} finally {
 				stmt = null;
 			}
 		}
-		
-		if(conn != null){
-			try{
-				if(!conn.isClosed()){
+
+		if (conn != null) {
+			try {
+				if (!conn.isClosed()) {
 					conn.close();
 				}
-			}catch(Exception e){
+			} catch (Exception e) {
 				e.printStackTrace();
-			}finally{
-				conn=null;
+			} finally {
+				conn = null;
 			}
 		}
 	}
