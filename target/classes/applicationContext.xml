@@ -8,13 +8,16 @@
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.2.xsd">
 
 	<context:component-scan base-package="com.springbook.biz"></context:component-scan>
-	
+
 	<!-- Data Source -->
-	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-    <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-    <property name="url" value="jdbc:mysql://localhost/Spring_Quick_Start"/>
-    <property name="username" value="dimenter"/>
-    <property name="password" value="Dimenter711!"/>
-</bean>
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url" value="jdbc:mysql://localhost/Spring_Quick_Start" />
+		<property name="username" value="dimenter" />
+		<property name="password" value="Dimenter711!" />
+	</bean>
 	
+	
+
 </beans>
